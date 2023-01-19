@@ -1,0 +1,51 @@
+# vim: syntax=sh
+
+if [ -z "$TMUX" ]; then
+
+    # UPDATE SYSTEM UTILITIES
+    [ -n "$(command -v mas)" ] &&
+        (mas upgrade </dev/null >/dev/null 2>&1 &)
+
+    [ -n "$(command -v brew)" ] &&
+        (brew upgrade </dev/null >/dev/null 2>&1 &)
+
+    [ -n "$(command -v pipx)" ] &&
+        (pipx upgrade-all </dev/null >/dev/null 2>&1 &)
+
+    [ -n "$(command -v tldr)" ] &&
+        (tldr --update </dev/null >/dev/null 2>&1 &)
+
+fi
+
+[ -n "$(command -v rbenv)" ] &&
+    eval "$(rbenv init - zsh)" &&
+    debug_info "Initializing functions for 'rbenv'"
+
+# CLI TOOLS SETTINGS
+[ -n "$(command -v bw)" ] &&
+    eval "$(bw completion --shell zsh)" &&
+    debug_info "Initializing functions for 'bw'"
+
+[ -n "$(command -v gh)" ] &&
+    eval "$(gh completion --shell zsh)" &&
+    debug_info "Initializing functions for 'gh'"
+
+[ -n "$(command -v navi)" ] &&
+    debug_info "Initializing functions for 'navi'" &&
+    eval "$(navi widget zsh)"
+
+[ -n "$(command -v mcfly)" ] &&
+    debug_info "Initializing functions for 'mcfly'" &&
+    eval "$(mcfly init zsh | sed 's,\^R,^H,')"
+
+[ -n "$(command -v zoxide)" ] &&
+    debug_info "Initializing functions for 'zoxide'" &&
+    eval "$(zoxide init zsh --cmd j)"
+
+[ -n "$(command -v chezmoi)" ] &&
+    eval "$(chezmoi completion zsh)" &&
+    debug_info "Initializing functions for 'chezmoi'"
+
+[ -n "$(command -v cocainate)" ] &&
+    debug_info "Initializing functions for 'cocainate'" &&
+    eval "$(cocainate completion zsh)"

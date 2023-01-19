@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  socat:
+    image: bpack/socat
+    command: TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock
+    expose:
+      - "2375"
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  run:
+    depends_on:
+      - socat
+    build:
+      context: .
+      args:
+          USER: ${GITHUB_USER:-$USER}
+          NAME: ${GIT_COMMITTER_NAME:-$NAME}
+          EMAIL: ${GIT_COMMITTER_EMAIL:-$EMAIL}
+    tty: true
+    stdin_open: true
+    network_mode: host
+    environment:
+      - DOCKER_HOST=localhost:2375
+    volumes:
+      - $PWD:$PWD
+      - $HOME/.ssh:/home/$USER/.ssh
+      - $HOME/.config/git/config:/home/$USER/.config/git/config
+    working_dir: $PWD

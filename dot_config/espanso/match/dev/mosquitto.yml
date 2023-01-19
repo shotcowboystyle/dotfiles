@@ -1,0 +1,8 @@
+# matches:
+#   # Attach to Mosquitto container
+#   - trigger: ";mqttattach"
+#     replace: "docker exec -it mosquitto sh"
+
+#   # Hash mosquito password file
+#   - trigger: ";mqtthashpw"
+#     replace: "mosquitto_passwd -U <PASSWORD_FILE>"

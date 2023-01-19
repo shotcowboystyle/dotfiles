@@ -1,0 +1,8 @@
+# matches:
+#   # Get used port process ID
+#   - trigger: ";lsof"
+#     replace: "lsof -n -i:<PORT>$|$ | grep LISTEN"
+
+#   # Kill process by ID
+#   - trigger: ";kill9"
+#     replace: "kill -9 <PID>$|$"

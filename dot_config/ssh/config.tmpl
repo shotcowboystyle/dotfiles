@@ -1,0 +1,54 @@
+# SSH CONFIGURATIONS
+
+{{- if eq .chezmoi.os "darwin" -}}
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+{{ end -}}
+
+Host github.com
+    User                  git
+    StrictHostKeyChecking yes
+
+Host unifi
+  HostName 192.168.1.1
+  User {{- (bitwarden "item" "28ecb8bd-a9e4-4dea-94e9-ae7a000e328d").login.username }}
+  HostKeyAlgorithms=+ssh-rs
+
+Host pihole
+  HostName 192.168.1.12
+  Port {{ (bitwardenFields "item" "0952aff0-bec9-415a-90e4-af89013b6eca").ssh_port.value }}
+  User {{- (bitwarden "item" "0952aff0-bec9-415a-90e4-af89013b6eca").login.username }}
+
+Host pacman
+  HostName 192.168.10.10
+  User {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").user.value }}
+
+Host pinky
+  HostName 192.168.10.11
+  User {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").user.value }}
+
+Host clyde
+  HostName 192.168.10.12
+  User {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").user.value }}
+
+Host inky
+  HostName 192.168.10.13
+  User {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").user.value }}
+
+Host blinky
+  HostName 192.168.10.14
+  User {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").user.value }}
+
+Host metroid
+  HostName 192.168.10.15
+  User {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").user.value }}
+
+Host nastrodamus
+  HostName 192.168.10.21
+  User {{ (bitwardenFields "item" "6aba4b3c-12bc-4681-b20e-af89013ac0c9").ssh_user.value }}
+  Port {{ (bitwardenFields "item" "6aba4b3c-12bc-4681-b20e-af89013ac0c9").ssh_port.value }}
+  RequestTTY force
+  RemoteCommand /usr/local/bin/zsh

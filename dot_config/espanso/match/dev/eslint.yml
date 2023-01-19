@@ -1,0 +1,4 @@
+# matches:
+#   # eslint disable next line
+#   - trigger: ";lintdnl"
+#     replace: "// eslint-disable-next-line |"

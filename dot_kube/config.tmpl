@@ -1,0 +1,20 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").certificate_authority_data.value }}
+    server: https://192.168.10.10:6443
+  name: default
+contexts:
+- context:
+    cluster: default
+    namespace: networking
+    user: default
+  name: default
+current-context: default
+kind: Config
+preferences: {}
+users:
+- name: default
+  user:
+    client-certificate-data: {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").client_certificate_data.value }}
+    client-key-data: {{ (bitwardenFields "item" "3a761c63-7c96-45f6-bde3-af89013a1f21").client_key_data.value }}

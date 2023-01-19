@@ -1,0 +1,18 @@
+# matches:
+#   # Show long running queries
+#   - trigger: ";sqllongqueries"
+#     replace: "select * from long_running_queries;"
+
+#   # Terminate long running query
+#   - trigger: ";sqltermlongquery"
+#     replace: "SELECT pg_terminate_backend(<PID>);"
+
+#   # SQL Select statement
+#   - trigger: ";select*"
+#     replace: |
+#               SELECT *
+#               FROM $|$
+#               -- WHERE
+#               -- ORDER BY updatedAt DESC
+#               LIMIT 1000
+#               ;

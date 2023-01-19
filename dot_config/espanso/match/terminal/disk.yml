@@ -1,0 +1,4 @@
+# matches:
+#   # Clone disk to image
+#   - trigger: ";backupdisk"
+#     replace: "sudo gdd if=/dev/rdisk4 of=sd_backup.dmg status=progress bs=16M"

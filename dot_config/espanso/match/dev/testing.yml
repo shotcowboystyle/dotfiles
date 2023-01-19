@@ -1,0 +1,8 @@
+# matches:
+#   # Test user phone number
+#   - trigger: ";tph"
+#     replace: "8437611111"
+
+#   # Test user password
+#   - trigger: ";tpw"
+#     replace: "Password123"

@@ -1,0 +1,23 @@
+# FILES TO IGNORE
+README.md
+.tmuxinator.yml
+
+# FILES USED ONLY ON MACOS
+{{ if ne .chezmoi.os "darwin" }}
+.config/svim/*
+.config/skhd/*
+.config/yabai/*
+.config/sketchybar/*
+{{ end }}
+
+# FILES USED ONLY ON SELF COMPUTER
+{{- if ne .computer.type "self" }}
+{{- end }}
+
+# FILES USED ONLY ON WORK COMPUTER
+{{- if ne .computer.type "work" }}
+.config/aws/config
+.config/aws/credentials
+.config/.jira/.config.yml
+.config/jenkins_jobs/jenkins_jobs.ini
+{{- end }}

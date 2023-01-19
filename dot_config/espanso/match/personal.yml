@@ -1,0 +1,31 @@
+matches:
+  # My first name
+  - trigger: ";first"
+    replace: "Curtis"
+
+  # My last name
+  - trigger: ";last"
+    replace: "Blanton"
+
+  # My full name
+  - trigger: ";full"
+    replace: "Curtis Blanton"
+
+  # My CC full name
+  - trigger: ";ccn"
+    replace: "William Blanton"
+
+  # My email
+  - trigger: ";em"
+    replace: "curt.blanton@gmail.com"
+
+  # My phone number
+  - trigger: ";ph"
+    replace: "8435138134"
+
+  # My home address
+  - trigger: ";addr"
+    replace: |
+        943 Godber Street,
+        Charleston, SC 29412
+        USA

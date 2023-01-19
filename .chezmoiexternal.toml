@@ -1,0 +1,22 @@
+# EXTERNAL REPOSITORIES
+[".cache/tpm/tpm"]
+  url  = "https://github.com/tmux-plugins/tpm"
+  type = "git-repo"
+
+[".cache/color-scripts"]
+  url           = "https://gitlab.com/dwt1/shell-color-scripts"
+  type          = "git-repo"
+  refreshPeriod = "24h"
+
+[".local/share/nvim/site/pack/packer/start/packer.nvim"]
+  url  = "https://github.com/wbthomason/packer.nvim"
+  type = "git-repo"
+
+# EXTERNAL BINARIES
+[".local/bin/sn"]
+  url        = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"
+  type       = "file"
+  executable = true
+  [".local/bin/sn".filter]
+    args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "sn"]
+    command = "tar"

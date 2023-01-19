@@ -1,0 +1,12 @@
+{
+	"version": "10",
+	"aliases": {
+		"minio": {
+			"url": "https://s3.peanutbutterporkchop.com",
+			"accessKey": "{{ (bitwarden "item" "803bbc39-824a-4576-b14e-aece00191c23").login.username }}",
+			"secretKey": "{{ (bitwardenFields "item" "803bbc39-824a-4576-b14e-aece00191c23").secret_key.value }}",
+			"api": "S3v4",
+			"path": "auto"
+		}
+	}
+}

@@ -1,0 +1,11 @@
+# matches:
+#   # Console log statement
+#   - trigger: ";clog"
+#     replace: "console.log('############ $|$');"
+
+#   # setTimeout statement
+#   - trigger: ";timeout"
+#     replace: >
+#               setTimeout(() => {
+#                 $|$
+#               }, 0);

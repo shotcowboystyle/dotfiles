@@ -1,0 +1,4 @@
+# matches:
+#   # Restart pod
+#   - trigger: ";restartpod"
+#     replace: "kubectl get pod <POD_NAME> -n <NAMESPACE> -o yaml | kubectl replace --force -f -"
