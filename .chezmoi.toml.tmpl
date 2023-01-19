@@ -27,11 +27,8 @@
 {{- if $interactive -}}
 {{- $computer = promptString "computer type (work/self)" }}
 {{- else -}}
-{{- $computer = self -}}
+{{- $computer = "self" -}}
 {{- end -}}
-
-# PERSONAL OR COMPANY COMPUTER
-{{ $computer := promptString "computer type (work/self)" -}}
 
 sourceDir: "{{ .chezmoi.sourceDir }}"
 
