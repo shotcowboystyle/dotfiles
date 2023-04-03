@@ -3,3 +3,4 @@ prettier
 typescript
 npm-merge-driver
 @graphql-inspector/cli
+degit

@@ -4,7 +4,7 @@ workspace:
   specs:
     kubernetes:
       image:
-        value: jasonmorganson/dotfiles
+        value: shotcowboystyle/dotfiles
       container-based-vm:
         value: true
       cpu:

@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Non-interactive dotfiles install script for use with Codespaces.
+# Assumes dotfiles have been cloned to ~/dotfiles.
+# https://www.chezmoi.io/docs/how-to/#use-chezmoi-with-github-codespaces-visual-studio-codespaces-or-visual-studio-code-remote---containers
+
 set -e # -e: exit on error
 
 if [ ! "$(command -v chezmoi)" ]; then
